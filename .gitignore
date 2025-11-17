@@ -23,6 +23,14 @@ wm/dmenu/dmenu
 # Python caches (future-proof)
 __pycache__/
 *.pyc
+
+# SSH Keys - Secure these!
+home/.ssh/id_*
+!home/.ssh/id_*.pub  # (Optional) It is safe to commit public keys if you want
+
+# Ignore GitHub CLI secrets
+config/gh/hosts.yml
+
 # -----------------------------------------------------------
 # A NOTE ON CONFIG.H
 # -----------------------------------------------------------

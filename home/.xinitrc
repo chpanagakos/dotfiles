@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Keyboard layout (optional)
+setxkbmap -layout "us,gr" -option "grp:alt_shift_toggle"
+
+# Run single-monitor mode
+"$HOME/bin/2mon.sh" &
+
+# Run compositor if you ever want (not needed with NVIDIA)
+# picom --experimental-backends &
+
+# Statusbar refresh
+while true; do
+    "$HOME/bin/statusbar.sh"
+    sleep 1
+done &
+
+# Cursor settings
+export XCURSOR_THEME=Adwaita
+export XCURSOR_SIZE=16
+
+# Start Redshift (Reads config from ~/.config/redshift/redshift.conf)
+redshift -c ~/.config/redshift/redshift.conf &
+
+# Sets the background (optional, if you have feh installed)
+# feh --bg-scale ~/path/to/wallpaper.jpg &
+
+# Start DWM
+exec dwm
