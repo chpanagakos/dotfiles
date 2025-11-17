@@ -1,0 +1,37 @@
+# Suckless build files
+
+**/*.o
+**/*.rej
+**/*.orig
+**/*.swp
+**/*~
+*.o
+
+# Ignore the compiled binaries for your specific tools
+# (Adjust paths if your folder structure is different)
+wm/dwm/dwm
+wm/st/st
+wm/dmenu/dmenu
+
+# mk temp files
+*.d
+*.output
+
+# Logs
+*.log
+
+# Python caches (future-proof)
+__pycache__/
+*.pyc
+# -----------------------------------------------------------
+# A NOTE ON CONFIG.H
+# -----------------------------------------------------------
+# Suckless tools generate 'config.h' from 'config.def.h'.
+#
+# MOST USERS: Do NOT ignore config.h. 
+# You likely edit config.h directly to change colors/keybinds.
+# You want to save those changes in Git.
+#
+# ADVANCED USERS: If you strictly edit config.def.h and treat 
+# config.h as a build artifact, uncomment the line below:
+# wm/*/config.h
