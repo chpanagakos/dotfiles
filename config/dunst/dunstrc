@@ -1,0 +1,30 @@
+[global]
+    # Size and Position
+    width = 300
+    height = 100
+    origin = top-right
+    offset = 10x50
+
+    # Appearance
+    font = JetBrainsMono Nerd Font 10
+    frame_width = 2
+    corner_radius = 5
+
+    # Behavior
+    timeout = 5  # Disappear after 5 seconds
+
+[urgency_low]
+    background = "#2E3440"
+    foreground = "#E5E9F0"
+    frame_color = "#81A1C1"
+
+[urgency_normal]
+    background = "#2E3440"
+    foreground = "#E5E9F0"
+    frame_color = "#81A1C1"
+
+[urgency_critical]
+    background = "#2E3440"
+    foreground = "#BF616A"
+    frame_color = "#BF616A"
+    timeout = 0  # Stay until clicked

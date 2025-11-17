@@ -22,6 +22,12 @@ export XCURSOR_SIZE=16
 # Start Redshift (Reads config from ~/.config/redshift/redshift.conf)
 redshift -c ~/.config/redshift/redshift.conf &
 
+# Notification Daemon
+dunst &
+
+# Automount USBs (tray icon enabled if you have systray patch)
+udiskie &
+
 # Sets the background (optional, if you have feh installed)
 # feh --bg-scale ~/path/to/wallpaper.jpg &
 
