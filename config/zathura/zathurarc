@@ -3,40 +3,40 @@
 # Behavior
 set selection-clipboard clipboard
 set adjust-open width
-set recolor "true"              # Start in Dark Mode by default
+# set recolor "true"              # Start in Dark Mode by default
 set recolor-keephue "true"      # Keep image colors normal
 
-# --- Rosé Pine Theme ---
-
-# Base & Text
-set default-bg                  "#191724"
-set default-fg                  "#e0def4"
-
-# Status Bar
-set statusbar-bg                "#191724"
-set statusbar-fg                "#e0def4"
-
-# Input Bar
-set inputbar-bg                 "#191724"
-set inputbar-fg                 "#e0def4"
-
-# Highlighting (Search results)
-set highlight-color             "#eb6f92"  # Love (Red)
-set highlight-active-color      "#f6c177"  # Gold
-
-# Notification (Errors/Warnings)
-set notification-error-bg       "#eb6f92"
-set notification-error-fg       "#191724"
-set notification-warning-bg     "#f6c177"
-set notification-warning-fg     "#191724"
-
-# Recolor Mode (The "Dark Mode" magic)
-# This flips white pages to dark grey, and black text to white
-set recolor-lightcolor          "#191724"  # Page Background
-set recolor-darkcolor           "#e0def4"  # Text
-
-# Index/TOC mode
-set index-bg                    "#191724"
-set index-fg                    "#e0def4"
-set index-active-bg             "#31748f"  # Pine
-set index-active-fg             "#191724"
+# # --- Rosé Pine Theme ---
+#
+# # Base & Text
+# set default-bg                  "#191724"
+# set default-fg                  "#e0def4"
+#
+# # Status Bar
+# set statusbar-bg                "#191724"
+# set statusbar-fg                "#e0def4"
+#
+# # Input Bar
+# set inputbar-bg                 "#191724"
+# set inputbar-fg                 "#e0def4"
+#
+# # Highlighting (Search results)
+# set highlight-color             "#eb6f92"  # Love (Red)
+# set highlight-active-color      "#f6c177"  # Gold
+#
+# # Notification (Errors/Warnings)
+# set notification-error-bg       "#eb6f92"
+# set notification-error-fg       "#191724"
+# set notification-warning-bg     "#f6c177"
+# set notification-warning-fg     "#191724"
+#
+# # Recolor Mode (The "Dark Mode" magic)
+# # This flips white pages to dark grey, and black text to white
+# set recolor-lightcolor          "#191724"  # Page Background
+# set recolor-darkcolor           "#e0def4"  # Text
+#
+# # Index/TOC mode
+# set index-bg                    "#191724"
+# set index-fg                    "#e0def4"
+# set index-active-bg             "#31748f"  # Pine
+# set index-active-fg             "#191724"

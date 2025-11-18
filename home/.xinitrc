@@ -28,6 +28,9 @@ dunst &
 # Automount USBs (tray icon enabled if you have systray patch)
 udiskie &
 
+# Polkit Authentication Agent (Password popups)
+/usr/bin/lxpolkit &
+
 # Sets the background (optional, if you have feh installed)
 # feh --bg-scale ~/path/to/wallpaper.jpg &
 
