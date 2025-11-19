@@ -31,6 +31,10 @@ home/.ssh/id_*
 # Ignore GitHub CLI secrets
 config/gh/hosts.yml
 
+# mainly for latex files
+echo "build/" >> .gitignore
+.pdf
+
 # -----------------------------------------------------------
 # A NOTE ON CONFIG.H
 # -----------------------------------------------------------
