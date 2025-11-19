@@ -84,10 +84,10 @@ The **Mod** key is mapped to the **Super/Windows** key.
 
 | Key Combination | Action |
 | :--- | :--- |
-| `Mod` + `Return` | Open Terminal (`st`) |
+| `Mod` + `Shift` + `Return` | Open Terminal (`st`) |
 | `Mod` + `p` | Open Launcher (`dmenu`) |
 | `Mod` + `Shift` + `b` | Open Browser (`firefox`) |
-| `Mod` + `Shift` + `Enter` | Promote window to Master |
+| `Mod` + `Return` | Promote window to Master |
 | `Mod` + `j` / `k` | Focus Next / Previous window |
 | `Mod` + `h` / `l` | Resize Master area |
 | `Mod` + `Shift` + `Space` | Toggle Floating mode |
@@ -97,18 +97,14 @@ The **Mod** key is mapped to the **Super/Windows** key.
 
 ## 🔧 Custom Scripts
 
-Located in ~/bin/ (symlinked from dotfiles/bin/):
+Located in `~/bin/` (symlinked from `dotfiles/bin/`):
 
-    statusbar.sh: Minimal loop displaying Volume, CPU load, and Clock using Nerd Fonts.
-    
-    [1-3]mon.sh: xrandr scripts to quickly toggle between single, dual, and triple monitor setups.
-    
-    run-ocr.sh: Image-to-text workflow.
-    
-    clipshot.sh: Screenshot utility.
+* **`statusbar.sh`** Minimal loop displaying Volume, CPU load, and Clock using Nerd Fonts.
+* **`[1-3]mon.sh`** `xrandr` scripts to quickly toggle between single, dual, and triple monitor setups.
+* **`run-ocr.sh`** Image-to-text workflow (Tesseract/Grim/Slurp).
+* **`clipshot.sh`** Screenshot utility saving to clipboard and disk.
 
 ## ⚠️ Note on Configuration
 
-    Suckless Tools: Configuration is handled in config.def.h. The generated config.h is git-ignored.
-    
-    Secrets: SSH keys and sensitive tokens are strictly excluded via .gitignore.
+* **Suckless Tools:** Configuration is handled in `config.def.h`. The generated `config.h` is explicitly **git-ignored** to prevent build conflicts across different machines.
+* **Secrets:** SSH keys, history files, and sensitive tokens are strictly excluded via `.gitignore`.
