@@ -16,6 +16,7 @@ if status is-interactive
     abbr --add gc git commit -m
     abbr --add vim nvim
     abbr --add texbuild latexmk -xelatex
+    abbr --add telegram ~/src/Telegram/Telegram
     
     # Use 'alias' only if you really need it to NOT expand
     # alias my_alias 'echo hello'

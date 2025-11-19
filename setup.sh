@@ -1,9 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Go to the directory where this script lives (the repo root)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
 # Ensure directories exist
 mkdir -p ~/.config
 mkdir -p ~/wm
 mkdir -p ~/bin  # <--- MUST be created before stowing
+
+if ! command -v stow >/dev/null 2>&1; then
+  echo "Error: 'stow' is not installed. Install it and re-run this script."
+  exit 1
+fi
 
 echo "Stowing Dotfiles..."
 
