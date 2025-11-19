@@ -112,7 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Start ssh-agent and cache the key
+eval $(keychain --eval --agents ssh id_ed25519)
+
 # Launch Fish if this is an interactive session
 if [[ $- == *i* ]]; then
     exec fish
 fi
+
