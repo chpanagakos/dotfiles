@@ -78,20 +78,22 @@ sudo make install
 cd ~/dotfiles/wm/dmenu
 sudo make install
 
-## ⌨️ Keybindings (Workflow)
+## ⌨️ Keybindings
 
-The Mod key is mapped to Super/Windows.
-Key	Action
-Mod + Return	Open Terminal (st)
-Mod + p	Open Launcher (dmenu)
-Mod + Shift + b	Open Browser (firefox)
-Mod + Shift + Enter	Promote window to master
-Mod + j / k	Focus next/prev window
-Mod + h / l	Resize master area
-Mod + Shift + Space	Toggle Floating mode
-Mod + Shift + q	Quit dwm
-Mod + Ctrl + s	Screenshot (via clipshot.sh)
-F1 / F2 / F3	Switch Monitor Layouts (custom scripts)
+The **Mod** key is mapped to the **Super/Windows** key.
+
+| Key Combination | Action |
+| :--- | :--- |
+| `Mod` + `Return` | Open Terminal (`st`) |
+| `Mod` + `p` | Open Launcher (`dmenu`) |
+| `Mod` + `Shift` + `b` | Open Browser (`firefox`) |
+| `Mod` + `Shift` + `Enter` | Promote window to Master |
+| `Mod` + `j` / `k` | Focus Next / Previous window |
+| `Mod` + `h` / `l` | Resize Master area |
+| `Mod` + `Shift` + `Space` | Toggle Floating mode |
+| `Mod` + `Shift` + `q` | Quit dwm |
+| `Mod` + `Ctrl` + `s` | Screenshot (via `clipshot.sh`) |
+| `F1` / `F2` / `F3` | Switch Monitor Layouts (custom scripts) |
 
 ## 🔧 Custom Scripts
 
