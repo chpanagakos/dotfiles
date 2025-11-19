@@ -10,10 +10,17 @@ setxkbmap -layout "us,gr" -variant ",polytonic" -option "grp:shifts_toggle,compo
 # picom --experimental-backends &
 
 # Statusbar refresh
-while true; do
-    "$HOME/bin/statusbar.sh"
-    sleep 1
-done &
+# while true; do
+#     "$HOME/bin/statusbar.sh"
+#     sleep 1
+# done &
+
+# Kill any existing statusbar scripts to prevent duplicates if you reload
+pkill -f "statusbar.sh"
+
+# Run the script in the background
+~/bin/statusbar.sh &
+
 
 # Cursor settings
 export XCURSOR_THEME=Adwaita

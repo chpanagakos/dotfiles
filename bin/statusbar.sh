@@ -1,37 +1,50 @@
 #!/bin/sh
 
+# Interval in seconds
+INTERVAL=1
+
 # Volume (PipeWire / pactl)
 vol() {
-    VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-    MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
-
-    if [ "$MUTED" = "yes" ]; then
-        printf "🔇 %s%%" "$VOLUME"
+    # getting full line first reduces multiple pactl calls
+    SINK_INFO=$(pactl get-sink-volume @DEFAULT_SINK@)
+    MUTE_INFO=$(pactl get-sink-mute @DEFAULT_SINK@)
+    
+    # Extract percentage (removes % and takes the first volume found)
+    VOLUME=$(echo "$SINK_INFO" | grep -oP '\d+(?=%)' | head -n 1)
+    
+    if echo "$MUTE_INFO" | grep -q "yes"; then
+        printf "  %s%%" "$VOLUME"  # Nerd Font Mute Icon
     else
-        if   [ "$VOLUME" -lt 33 ]; then ICON="🔈"
-        elif [ "$VOLUME" -lt 66 ]; then ICON="🔉"
-        else ICON="🔊"
+        # Minimal logic: just icon + number
+        if   [ "$VOLUME" -lt 33 ]; then ICON=""
+        elif [ "$VOLUME" -lt 66 ]; then ICON=""
+        else ICON=""
         fi
-        printf "%s %s%%" "$ICON" "$VOLUME"
+        printf "%s  %s%%" "$ICON" "$VOLUME"
     fi
 }
 
-# CPU load
+# CPU Load (Cleaned up)
 cpu() {
+    # Just the 1 minute load average for minimalism
     LOAD=$(awk '{print $1}' /proc/loadavg)
-    printf "🖥️ %s" "$LOAD"
+    printf "  %s" "$LOAD"
 }
 
-# Clock
+# Clock (Simplified format)
 clock() {
-    printf "📅 %s" "$(date '+%a %d %b  %H:%M')"
+    # Format: "Day DD Mon HH:MM"
+    printf "  %s" "$(date '+%a %d %b %H:%M')"
 }
 
-# Combine
-status() {
-    printf "%s | %s | %s" "$(vol)" "$(cpu)" "$(clock)"
-}
-
-# Set DWM bar
-xsetroot -name "$(status)"
-
+# The Loop
+while true; do
+    # Calculate status
+    STATUS="$(vol)  |  $(cpu)  |  $(clock)"
+    
+    # Set root name
+    xsetroot -name "$STATUS"
+    
+    # Wait before next update
+    sleep $INTERVAL
+done
