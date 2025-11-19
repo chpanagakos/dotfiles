@@ -20,11 +20,11 @@ The system follows the [Tokyo Night](https://github.com/folke/tokyo-night.nvim) 
 | Component | Choice | Notes |
 | :--- | :--- | :--- |
 | **OS** | Debian Stable | The bedrock. |
-| **WM** | [dwm](wm/dwm) | Patched for system tray, gaps, and layouts. |
-| **Terminal** | [st](wm/st) | Simple Terminal with alpha & scrollback patches. |
-| **Launcher** | [dmenu](wm/dmenu) | Center patch + fuzzy matching + Tokyo Night colors. |
+| **WM** | [dwm](wm/dwm) | No patches, themed, added app shortcuts |
+| **Terminal** | [st](wm/st) , starship | No patches, themed |
+| **Launcher** | [dmenu](wm/dmenu) | No patches, themed |
 | **Shell** | Bash / Fish | Minimal prompt configuration. |
-| **Editor** | Neovim | Lua config, LSP ready. |
+| **Editor** | Neovim | Lua config, LSP ready, LaTeX ready(vimtex) |
 | **File Mgr** | Ranger | Terminal file manager with preview. |
 | **PDF** | Zathura | Vim-like PDF viewer. |
 | **Utilities** | Scrcpy, Dunst | Android mirroring and notification handling. |
@@ -56,7 +56,7 @@ sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev libx11-xc
 Clone the repository and run the setup script to create symlinks.
 Bash
 
-git clone [https://github.com/YOUR_USERNAME/dotfiles.git](https://github.com/YOUR_USERNAME/dotfiles.git) ~/dotfiles
+git clone [https://github.com/chpanagakos/dotfiles.git](https://github.com/chpanagakos/dotfiles.git) ~/dotfiles
 cd ~/dotfiles
 chmod +x setup.sh
 ./setup.sh
@@ -66,15 +66,15 @@ chmod +x setup.sh
 Compile the source code directly from the repository:
 Bash
 
-# Build dwm
+### Build dwm
 cd ~/dotfiles/wm/dwm
 sudo make install
 
-# Build st
+### Build st
 cd ~/dotfiles/wm/st
 sudo make install
 
-# Build dmenu
+### Build dmenu
 cd ~/dotfiles/wm/dmenu
 sudo make install
 
@@ -98,15 +98,15 @@ F1 / F2 / F3	Switch Monitor Layouts (custom scripts)
 Located in ~/bin/ (symlinked from dotfiles/bin/):
 
     statusbar.sh: Minimal loop displaying Volume, CPU load, and Clock using Nerd Fonts.
-
-    [1-3]mon.sh: xrandr scripts to quickly toggle between laptop, external, and dual monitor setups.
-
+    
+    [1-3]mon.sh: xrandr scripts to quickly toggle between single, dual, and triple monitor setups.
+    
     run-ocr.sh: Image-to-text workflow.
-
+    
     clipshot.sh: Screenshot utility.
 
 ## ⚠️ Note on Configuration
 
     Suckless Tools: Configuration is handled in config.def.h. The generated config.h is git-ignored.
-
+    
     Secrets: SSH keys and sensitive tokens are strictly excluded via .gitignore.

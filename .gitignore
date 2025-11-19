@@ -6,6 +6,8 @@
 **/*.swp
 **/*~
 *.o
+# Ignore the generated config (we only track config.def.h)
+config.h
 
 # Ignore the compiled binaries for your specific tools
 # (Adjust paths if your folder structure is different)
@@ -34,6 +36,10 @@ config/gh/hosts.yml
 # mainly for latex files
 echo "build/" >> .gitignore
 .pdf
+
+# --- General ---
+.DS_Store
+thumbs.db
 
 # -----------------------------------------------------------
 # A NOTE ON CONFIG.H
