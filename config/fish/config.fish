@@ -17,7 +17,14 @@ if status is-interactive
     abbr --add vim nvim
     abbr --add texbuild latexmk -xelatex
     abbr --add telegram ~/src/Telegram/Telegram
+    abbr --add upd sudo apt update
+    abbr --add upg sudo apt upgrade
+    abbr --add inst sudo apt install
     
     # Use 'alias' only if you really need it to NOT expand
     # alias my_alias 'echo hello'
+
+    # alias to keep chromium from looking for gnome-keyring
+    # alias chromium 'chromium --password-store=basic'
+    
 end

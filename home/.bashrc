@@ -119,8 +119,13 @@ fi
 # Start ssh-agent and cache the key
 eval $(keychain --eval --quiet --agents ssh id_ed25519)
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Launch Fish if this is an interactive session
-if [[ $- == *i* ]]; then
-    exec fish
-fi
+# if [[ $- == *i* ]]; then
+#     exec fish
+# fi
+
 

@@ -85,6 +85,7 @@ static const char *mon2cmd[] = { "2mon.sh", NULL };
 static const char *mon3cmd[] = { "3mon.sh", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
 static const char *clipshotcmd[] = { "clipshot.sh", NULL }; 
+static const char *webmenucmd[] = { "webapp-menu.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -132,7 +133,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = webcmd } },
 	/* clipshot */
 	{ MODKEY|ControlMask,           XK_s,      spawn,          {.v = clipshotcmd } },
-
+	/* webapp-menu-sh */
+	{ MODKEY, 			XK_a,      spawn,          {.v = webmenucmd } },
 
 
 };

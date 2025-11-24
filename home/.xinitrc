@@ -27,8 +27,8 @@ export XCURSOR_THEME=Adwaita
 export XCURSOR_SIZE=16
 
 # Start Redshift (Reads config from ~/.config/redshift/redshift.conf)
-redshift -c ~/.config/redshift/redshift.conf &
-
+redshift &
+# (sleep 1 && redshift) &
 # Notification Daemon
 dunst &
 
