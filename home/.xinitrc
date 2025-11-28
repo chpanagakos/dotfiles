@@ -39,7 +39,7 @@ udiskie &
 /usr/bin/lxpolkit &
 
 # Sets the background (optional, if you have feh installed)
-# feh --bg-scale ~/path/to/wallpaper.jpg &
+feh --bg-scale ~/pictures/tokyonight-wallpapers/crosses_original.png &
 
 # Start DWM
 exec dwm

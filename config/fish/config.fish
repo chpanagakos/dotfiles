@@ -15,6 +15,7 @@ if status is-interactive
     abbr --add ga git add
     abbr --add gc git commit -m
     abbr --add vim nvim
+    abbr --add fd fdfind
     abbr --add texbuild latexmk -xelatex
     abbr --add telegram ~/src/Telegram/Telegram
     abbr --add upd sudo apt update
