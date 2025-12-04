@@ -21,6 +21,8 @@ pkill -f "statusbar.sh"
 # Run the script in the background
 ~/bin/statusbar.sh &
 
+# wacom setup
+~/wacom-setup.sh &
 
 # Cursor settings
 export XCURSOR_THEME=Adwaita

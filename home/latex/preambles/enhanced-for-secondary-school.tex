@@ -1,0 +1,172 @@
+% !TEX program = lualatex
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fontspec}
+\usepackage{babel}
+\babelprovide[main, import]{greek}
+\babelprovide[import]{english}
+
+\babelfont{rm}{Liberation Serif}
+\babelfont{sf}{Liberation Sans}
+\babelfont{tt}{Liberation Mono}
+
+% math engine
+\usepackage{mathtools} % load BEFORE unicode-math
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+
+% ===== DELIMITERS =====
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}        % |x|
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}        % ||v||
+\DeclarePairedDelimiter{\pqty}{\lparen}{\rparen}      % (x)
+\DeclarePairedDelimiter{\angles}{\langle}{\rangle}    % <ψ>
+
+% ===== DIFFERENTIALS & DERIVATIVES =====
+\newcommand{\dd}{\symup{d}}                           % upright differential d
+\newcommand{\dv}[2]{\frac{\dd #1}{\dd #2}}            % dv/dt
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}} % ∂u/∂x
+\newcommand{\dvn}[3]{\frac{\dd^{#3} #1}{\dd #2^{#3}}} % d^n x/d t^n
+\newcommand{\pdvn}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}} % ∂^n u/∂x^n
+
+% ===== VECTORS & OPERATORS =====
+\newcommand{\vect}[1]{\symbf{#1}}                     % Bold vectors
+\newcommand{\uvec}[1]{\hat{\symbf{#1}}}               % Unit vectors (î, ĵ, k̂)
+\newcommand{\grad}{\symbf{\nabla}}                    % ∇
+\newcommand{\divergence}{\symbf{\nabla}\cdot}         % ∇·
+\newcommand{\curl}{\symbf{\nabla}\times}              % ∇×
+
+% ===== GREEK TRIG OPERATORS =====
+\DeclareMathOperator{\hm}{ημ}  % sin
+\DeclareMathOperator{\syn}{συν} % cos
+\DeclareMathOperator{\ef}{εφ}   % tan
+\DeclareMathOperator{\sef}{σφ}  % cot
+
+% ===== siunitx =====
+\usepackage{siunitx}
+\sisetup{
+  per-mode=symbol,
+  output-decimal-marker = {,},
+  separate-uncertainty = true,
+}
+
+% ===== GREEK ENUMERATION α), β) … =====
+\usepackage{enumitem}
+\makeatletter
+\newcommand{\@greekalph}[1]{%
+  \ifcase#1\or α\or β\or γ\or δ\or ε\or ζ\or η\or θ\or ι\or κ\or λ\or μ%
+  \or ν\or ξ\or ο\or π\or ρ\or σ\or τ\or υ\or φ\or χ\or ψ\or ω\else\@ctrerr\fi}
+\newcommand{\greekalph}[1]{\expandafter\@greekalph\csname c@#1\endcsname}
+\AddEnumerateCounter{\greekalph}{\@greekalph}{ω}
+\makeatother
+
+% ===== tcolorbox =====
+\usepackage[most]{tcolorbox}
+\tcbset{colback=white,colframe=black,arc=2pt,boxrule=.5pt}
+
+\newtcolorbox{theory}{title={Θεωρία},fonttitle=\bfseries}
+\newtcolorbox{examplebox}{title={Παράδειγμα},fonttitle=\bfseries}
+\newtcolorbox{exercisebox}{title={Άσκηση},fonttitle=\bfseries}
+\newtcolorbox{summarybox}{title={Συμπέρασμα},fonttitle=\bfseries,colback=black!5}
+
+% =======================
+% BEGIN DOCUMENT
+% =======================
+\begin{document}
+\section*{ΠΑΡΑΔΕΙΓΜΑΤΑ ΓΙΑ ΟΛΑ ΤΑ NEWCOMMANDS}
+
+% ---- Paired delimiters ----
+\begin{examplebox}
+\textbf{Paired delimiters}
+
+\[
+\abs{-5}=5,\qquad
+\norm{\vect{v}} = \norm*{\begin{bmatrix}3\\4\end{bmatrix}} = 5,
+\qquad
+\pqty{a+b}^2 = a^2 + 2ab + b^2,
+\qquad
+\angles{\psi} \text{ χρησιμοποιείται σε Κβαντική.}
+\]
+\end{examplebox}
+
+% ---- Derivatives ----
+\begin{examplebox}
+\textbf{Derivatives + Differentials}
+
+\[
+\dv{x}{t}=3t^2,\qquad
+\pdv{u}{x}=2x+3y,
+\]
+
+Higher order:
+\[
+\dvn{x}{t}{2}=\dv{}{t}\pqty{\dv{x}{t}},\qquad
+\pdvn{u}{x}{2}=\frac{\partial^2 u}{\partial x^2}.
+\]
+
+Integration w/ upright differential:
+\[
+s=\int v \,\dd t.
+\]
+\end{examplebox}
+
+% ---- Vectors & Field Operators ----
+\begin{examplebox}
+\textbf{Vectors & Operators}
+
+\[
+\vect{F} = m\vect{a},\qquad
+\uvec{i},\uvec{j},\uvec{k},
+\]
+
+\[
+\grad \phi,\qquad
+\divergence \vect{E} = \frac{\rho}{\varepsilon_0},\qquad
+\curl \vect{B} = \mu_0\vect{J}.
+\]
+\end{examplebox}
+
+% ---- Trigonometry ----
+\begin{examplebox}
+\textbf{Trig operators (upright Greek)}
+
+\[
+\hm 30^\circ=\frac12,\qquad
+\syn 60^\circ=\frac{\sqrt3}{2},\qquad
+\ef 45^\circ=1.
+\]
+
+Ταυτότητα:
+\[
+\hm^2\theta+\syn^2\theta=1.
+\]
+\end{examplebox}
+
+% ---- Units ----
+\begin{examplebox}
+\textbf{SI Units (siunitx)}
+
+\[
+g=\SI{9.81}{\meter\per\second\squared},\qquad
+F=\SI{12}{\newton},\qquad
+P=\SI{50}{\watt},\qquad
+\num{6.022e23}
+\]
+\end{examplebox}
+
+% ---- Enumeration α), β), γ)... ----
+\begin{examplebox}
+\textbf{Greek enumeration}
+
+\begin{enumerate}[label=\greekalph*)]
+\item Ταχύτητα ομοιόμορφης κίνησης
+\item Νόμος Νεύτωνα
+\item Βασικές Τριγωνομετρικές Ταυτότητες
+\end{enumerate}
+\end{examplebox}
+
+\begin{summarybox}
+Όλα τα \verb|\newcommand| τώρα έχουν πλήρη παραδείγματα.
+\end{summarybox}
+
+\end{document}
+

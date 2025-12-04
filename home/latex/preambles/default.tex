@@ -1,0 +1,119 @@
+% !TeX program = lualatex
+\documentclass[a4paper,11pt]{article}
+
+% --- Fonts & Languages (LuaLaTeX) ---
+\usepackage{fontspec}
+\usepackage{babel}
+
+% Languages: Greek main, English secondary
+\babelprovide[main, import]{greek}
+\babelprovide[import]{english}
+
+% Fonts
+\babelfont{rm}{Liberation Serif}
+\babelfont{sf}{Liberation Sans}
+\babelfont{tt}{Liberation Mono}
+
+% --- Math setup ---
+\usepackage{mathtools} % load BEFORE unicode-math
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter{\pqty}{\lparen}{\rparen}      % (x)
+
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+
+% --- Layout & extras ---
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+% --- siunitx setup ---
+\usepackage{siunitx}
+\sisetup{
+  per-mode = symbol,
+  output-decimal-marker = {,},
+}
+
+% --- Custom Greek math operators ---
+\DeclareMathOperator{\hm}{ημ}
+\DeclareMathOperator{\syn}{συν}
+\DeclareMathOperator{\ef}{εφ}
+\DeclareMathOperator{\sef}{σφ}
+
+% --- Greek enumerate labels α), β), γ), δ) without κεραία ---
+\makeatletter
+% Internal command: takes a NUMBER and returns the corresponding Greek letter
+\newcommand{\@greekalph}[1]{%
+  \ifcase#1
+  \or α\or β\or γ\or δ\or ε\or στ\or ζ\or η\or θ\or ι\or κ\or λ\or μ%
+  \or ν\or ξ\or ο\or π\or ρ\or σ\or τ\or υ\or φ\or χ\or ψ\or ω%
+  \else\@ctrerr
+  \fi}
+
+% External command: takes a COUNTER NAME (enumi, enumii, …)
+\newcommand{\greekalph}[1]{%
+  \expandafter\@greekalph\csname c@#1\endcsname}
+
+% Register this representation for enumitem
+\AddEnumerateCounter{\greekalph}{\@greekalph}{ω}
+\makeatother
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = blue,
+  urlcolor   = cyan,
+}
+
+\begin{document}
+
+\title{Δοκιμή Φυσικής και Μαθηματικών}
+\author{Χρήστης Debian}
+\date{\today}
+\maketitle
+
+\section{Κινηματική}
+
+Ένα αυτοκίνητο κινείται σε ευθύγραμμο δρόμο με μέση ταχύτητα:
+\[
+  v_{\text{μ.ο.}} = \SI{120}{\kilo\meter\per\hour}.
+\]
+
+Η κίνηση με σταθερή επιτάχυνση περιγράφεται από:
+\[
+  x(t) = x_0 + v_0 t + \frac{1}{2} a t^2.
+\]
+
+\section{Τριγωνομετρία}
+
+Η θεμελιώδης τριγωνομετρική ταυτότητα:
+\[
+  \hm^2 \theta + \syn^2 \theta = 1.
+\]
+
+Απλή αρμονική ταλάντωση:
+\[
+  x = A \cdot \hm(\omega t + \phi_0),
+  \qquad
+  \omega = \frac{2\pi}{T}.
+\]
+
+\section{Ελληνική Αρίθμηση Χωρίς Κεραία}
+
+\begin{enumerate}[label=\greekalph*.]
+  \item $I = Q \cdot t$
+  \item $I = \dfrac{Q}{t}$
+  \item $I = \dfrac{t}{Q}$
+  \item $I = Q + t$
+\end{enumerate}
+
+\section{Μικτό Κείμενο}
+
+This is a short sentence in English.
+\begin{otherlanguage*}{english}
+Here is a whole paragraph in English using babel.
+\end{otherlanguage*}
+
+\end{document}
+
