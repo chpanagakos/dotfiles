@@ -83,6 +83,8 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *mon1cmd[] = { "1mon.sh", NULL };
 static const char *mon2cmd[] = { "2mon.sh", NULL };
 static const char *mon3cmd[] = { "3mon.sh", NULL };
+static const char *mon4cmd[] = { "4mon.sh", NULL };
+static const char *wacomcmd[] = { "wacom-setup.sh", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
 static const char *clipshotcmd[] = { "clipshot.sh", NULL }; 
 static const char *webmenucmd[] = { "webapp-menu.sh", NULL };
@@ -122,9 +124,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	/* monitor controls */
 	{ MODKEY,              		XK_F1,     spawn, 	   {.v = mon1cmd } },
 	{ MODKEY,              		XK_F2,     spawn, 	   {.v = mon2cmd } },
 	{ MODKEY,              		XK_F3,     spawn, 	   {.v = mon3cmd } },
+	{ MODKEY,              		XK_F4,     spawn, 	   {.v = mon4cmd } },
+	/* toggle wacom to monitors */
+	{ MODKEY|ShiftMask,              XK_w,     spawn, 	   {.v = wacomcmd } },
 	/* Volume keys */
 	{ 0, 				XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
 	{ 0, 				XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
