@@ -135,6 +135,10 @@ static const Key keys[] = {
 	{ 0, 				XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
 	{ 0, 				XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
 	{ 0, 				XF86XK_AudioMute,        spawn, {.v = volmute } },
+	/* Brightness Control */
+	{ 0,				XF86XK_MonBrightnessUp,  spawn, SHCMD("brightnessctl set +5%") },
+	{ 0,				XF86XK_MonBrightnessDown,spawn, SHCMD("brightnessctl set 5%-") },
+
 	/* Browser */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = webcmd } },
 	/* clipshot */

@@ -129,3 +129,4 @@ export NVM_DIR="$HOME/.nvm"
 # fi
 
 
+export PATH="$HOME/bin:$PATH"
