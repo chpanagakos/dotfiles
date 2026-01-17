@@ -6,18 +6,6 @@ setxkbmap -layout "us,gr" -variant ",polytonic" -option "grp:shifts_toggle,compo
 # Run single-monitor mode
 "$HOME/bin/2mon.sh" &
 
-# Run compositor if you ever want (not needed with NVIDIA)
-# picom --experimental-backends &
-
-# Statusbar refresh
-# while true; do
-#     "$HOME/bin/statusbar.sh"
-#     sleep 1
-# done &
-
-# Kill any existing statusbar scripts to prevent duplicates if you reload
-# pkill -f "statusbar.sh"
-
 # Run the script in the background
 ~/bin/statusbar.sh &
 
@@ -30,7 +18,7 @@ export XCURSOR_SIZE=16
 
 # Start Redshift (Reads config from ~/.config/redshift/redshift.conf)
 redshift &
-# (sleep 1 && redshift) &
+
 # Notification Daemon
 dunst &
 

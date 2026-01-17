@@ -54,4 +54,10 @@ stow -R -v -t ~/wm wm
 # 4. Binaries (Files that go to ~/bin)
 stow -R -v -t ~/bin bin
 
+# Redshift: AppArmor denies following symlink targets outside ~/.config/redshift.conf
+if [ -L "$HOME/.config/redshift.conf" ]; then
+  rm -f "$HOME/.config/redshift.conf"
+fi
+install -m 0644 "$SCRIPT_DIR/config/redshift.conf" "$HOME/.config/redshift.conf"
+
 log "Done! Your workspace is ready."
