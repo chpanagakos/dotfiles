@@ -4,13 +4,14 @@
 # format: [Icon] [Name] | [URL]
 SITES="🤖 Gemini      | https://gemini.google.com
 💬 ChatGPT     | https://chat.openai.com
-📺 YouTube     | https://www.youtube.com
 🐙 GitHub      | https://github.com
 📧 Gmail       | https://mail.google.com
+📺 YouTube     | https://www.youtube.com
+🎥 Criterion   | https://www.criterionchannel.com/browse
+📡 Cosmote     | https://www.cosmotetvott.gr/#!/home
 🎵 Spotify     | https://open.spotify.com
-🌥️ Weather     | https://wttr.in/papadianika
-🛍️ Skroutz     | https://www.skroutz.gr"
-
+🛍️ Skroutz     | https://www.skroutz.gr
+🌥️ Weather     | https://wttr.in/papadianika"
 # Pipe to dmenu
 SELECTED=$(echo "$SITES" | dmenu -i -p "Web App:" -l 10)
 
