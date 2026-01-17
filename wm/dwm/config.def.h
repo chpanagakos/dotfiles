@@ -139,6 +139,7 @@ static const Key keys[] = {
 	{ 0,				XF86XK_MonBrightnessUp,  spawn, SHCMD("brightnessctl set +5%") },
 	{ 0,				XF86XK_MonBrightnessDown,spawn, SHCMD("brightnessctl set 5%-") },
 
+	{ MODKEY|ShiftMask,    		XK_l,      spawn,          SHCMD("slock") },
 	/* Browser */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = webcmd } },
 	/* clipshot */
