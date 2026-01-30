@@ -45,6 +45,9 @@ xsetwacom set "$STYLUS" MapToOutput "$TARGET"
 xsetwacom set "$STYLUS" Button 2 2
 xsetwacom set "$STYLUS" Button 3 3
 
+# Rotate for cable away
+xsetwacom set "$STYLUS" rotate half 
+
 # 8. Output message
 echo "Mapped Wacom stylus (id $STYLUS) to region: $TARGET"
 

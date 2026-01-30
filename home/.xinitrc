@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Keyboard layout (optional)
-setxkbmap -layout "us,gr" -variant ",polytonic" -option "grp:shifts_toggle,compose:ralt, ctrl:swapcaps" &
-
+setxkbmap -layout us,gr -variant ,polytonic \
+  -option grp:shifts_toggle,compose:ralt,grp_led:scroll
 # Run single-monitor mode
 "$HOME/bin/2mon.sh" &
 
