@@ -88,6 +88,7 @@ static const char *wacomcmd[] = { "wacom-setup.sh", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
 static const char *clipshotcmd[] = { "clipshot.sh", NULL }; 
 static const char *webmenucmd[] = { "webapp-menu.sh", NULL };
+static const char *xppcmd[] = { "xournalpp", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -142,6 +143,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,    		XK_l,      spawn,          SHCMD("slock") },
 	/* Browser */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = webcmd } },
+	/* xournalpp */
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = xppcmd } },
 	/* clipshot */
 	{ MODKEY|ControlMask,           XK_s,      spawn,          {.v = clipshotcmd } },
 	/* webapp-menu-sh */
