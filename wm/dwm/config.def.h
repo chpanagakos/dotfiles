@@ -77,7 +77,10 @@ static const char *volmute[] = { "pactl", "set-sink-mute",     "@DEFAULT_SINK@",
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
-static const char *termcmd[]  = { "st", "-e", "tmux", "new-session", "-A", "-s", "main", NULL };
+static const char *termcmd[]  = { "alacritty", "-e", "tmux", "new-session", "-A", "-s", "main", NULL };
+static const char *stcmd[]  = { "st", "-e", "fish", NULL };
+static const char *webcmd[]  = { "firefox", NULL };
+static const char *xppcmd[] = { "xournalpp", NULL };
 
 /* Commands (external scripts) */
 static const char *mon1cmd[] = { "1mon.sh", NULL };
@@ -85,15 +88,14 @@ static const char *mon2cmd[] = { "2mon.sh", NULL };
 static const char *mon3cmd[] = { "3mon.sh", NULL };
 static const char *mon4cmd[] = { "4mon.sh", NULL };
 static const char *wacomcmd[] = { "wacom-setup.sh", NULL };
-static const char *webcmd[]  = { "firefox", NULL };
 static const char *clipshotcmd[] = { "clipshot.sh", NULL }; 
 static const char *webmenucmd[] = { "webapp-menu.sh", NULL };
-static const char *xppcmd[] = { "xournalpp", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

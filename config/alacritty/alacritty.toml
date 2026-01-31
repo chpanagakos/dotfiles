@@ -1,0 +1,124 @@
+# ~/.config/alacritty/alacritty.toml
+# Unified: your previous baseline options + your st palette/fg/bg/cursor
+
+# --- Environment ---
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
+
+# --- Window ---
+[window]
+dynamic_title = true
+decorations = "None"      # good for dwm
+opacity = 1.0
+
+[window.padding]
+x = 8
+y = 8
+
+# --- Scrolling ---
+[scrolling]
+history = 50000
+multiplier = 3
+
+# --- Font ---
+[font]
+size = 12.0
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "CaskaydiaCove Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "CaskaydiaCove Nerd Font"
+style = "Italic"
+
+[font.offset]
+x = 0
+y = 0
+
+# --- Cursor (matches st: block, no blink; colors match your defaultcs/defaultrcs intent) ---
+[cursor]
+unfocused_hollow = true
+style = { shape = "Block", blinking = "Off" }
+
+# --- Mouse/Selection ---
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
+
+# --- Keyboard bindings ---
+# Keep minimal so tmux/vim own the keyboard.
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "F"
+mods = "Control|Shift"
+action = "SearchForward"
+
+[[keyboard.bindings]]
+key = "B"
+mods = "Control|Shift"
+action = "SearchBackward"
+
+# Font size controls
+[[keyboard.bindings]]
+key = "Equals"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
+
+# --- Colors (matches your st colorname[] + defaultfg/defaultbg/defaultcs) ---
+[colors.primary]
+background = "#1a1b26"   # st: colorname[256]
+foreground = "#c0caf5"   # st: colorname[257]
+
+[colors.normal]
+black   = "#15161e"
+red     = "#f7768e"
+green   = "#9ece6a"
+yellow  = "#e0af68"
+blue    = "#7aa2f7"
+magenta = "#bb9af7"
+cyan    = "#7dcfff"
+white   = "#a9b1d6"
+
+[colors.bright]
+black   = "#414868"
+red     = "#f7768e"
+green   = "#9ece6a"
+yellow  = "#e0af68"
+blue    = "#7aa2f7"
+magenta = "#bb9af7"
+cyan    = "#7dcfff"
+white   = "#c0caf5"
+
+# Cursor color: cursor uses your defaultcs (same as fg).
+# Text color here approximates reverse-cursor behavior (defaultrcs = bg).
+[colors.cursor]
+cursor = "#c0caf5"
+text = "#1a1b26"
+
