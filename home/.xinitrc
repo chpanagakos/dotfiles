@@ -2,7 +2,7 @@
 
 # Keyboard layout (optional)
 setxkbmap -layout us,gr -variant ,polytonic \
-  -option grp:shifts_toggle,compose:ralt,grp_led:scroll
+  -option grp:shifts_toggle,compose:ralt,grp_led:scroll,ctrl:swapcaps
 # Run single-monitor mode
 "$HOME/bin/2mon.sh" &
 
