@@ -1,8 +1,6 @@
 #!/bin/sh
 
-# Keyboard layout (optional)
-setxkbmap -layout us,gr -variant ,polytonic \
-  -option grp:shifts_toggle,compose:ralt,grp_led:scroll,ctrl:swapcaps
+#
 # Run single-monitor mode
 "$HOME/bin/2mon.sh" &
 
@@ -39,5 +37,12 @@ xset s 600 600
 
 # 2. Start xss-lock to trigger slock when the timeout hits
 xss-lock -- slock &
+
+# Keyboard layout (optional)
+setxkbmap -layout us,gr -variant ,polytonic \
+  -option grp:shifts_toggle,compose:ralt,grp_led:scroll
+
+# setxkbmap -option ctrl:swapcaps
+
 # Start DWM
 exec dwm
