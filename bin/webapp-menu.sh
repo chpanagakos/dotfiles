@@ -2,8 +2,7 @@
 
 # Define your Web Apps
 # format: [Icon] [Name] | [URL]
-SITES="
-🧠claude.ai    | https://claude.ai
+SITES="🧠claude.ai    | https://claude.ai
 🤖 Gemini      | https://gemini.google.com
 💬 ChatGPT     | https://chat.openai.com
 🐙 GitHub      | https://github.com
