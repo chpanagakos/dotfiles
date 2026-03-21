@@ -132,3 +132,12 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 . "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$PATH"
+function y() {
+local tmp="$(mktemp -t yazi-cwd.XXXXXX)"
+yazi "$@" --cwd-file="$tmp"
+if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+cd -- "$cwd"
+fi
+rm -f -- "$tmp"
+}

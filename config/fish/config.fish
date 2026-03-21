@@ -29,3 +29,4 @@ if status is-interactive
     # alias chromium 'chromium --password-store=basic'
     
 end
+source ~/.cargo/env.fish
