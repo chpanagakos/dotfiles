@@ -23,7 +23,7 @@ multiplier = 3
 
 # --- Font ---
 [font]
-size = 9.0
+size = 12.0
 
 [font.normal]
 family = "CaskaydiaCove Nerd Font"
