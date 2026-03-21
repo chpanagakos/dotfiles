@@ -11,3 +11,21 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 vim.opt.shada = "!,'100,<50,s10,h"
+
+-- ============================================================
+-- AUTOCOMMANDS
+-- ============================================================
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
+
+-- Switch to English layout on leaving insert mode
+vim.api.nvim_create_autocmd("InsertLeave", {
+	callback = function()
+		os.execute("xkb-switch -s us")
+	end,
+})
