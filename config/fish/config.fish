@@ -14,6 +14,7 @@ if status is-interactive
     abbr --add gs git status
     abbr --add ga git add
     abbr --add gc git commit -m
+    abbr --add y yazi
     abbr --add vim nvim
     abbr --add fd fdfind
     abbr --add texbuild latexmk -xelatex

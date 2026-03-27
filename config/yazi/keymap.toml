@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = "<C-d>"
+run  = "shell -- dragon -x -i -T %s"
+desc = "Drag selected files with dragon"
