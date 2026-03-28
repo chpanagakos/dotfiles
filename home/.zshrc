@@ -124,11 +124,35 @@ function y() {
 }
 
 # -----------------------------------------------------------------------------
-# Aliases
+# Abbreviations (zsh-abbr — expands in place like Fish)
+# -----------------------------------------------------------------------------
+source ~/.zsh/zsh-abbr/zsh-abbr.zsh
+
+abbr ll='ls -l'
+abbr la='ls -la'
+abbr gs='git status'
+abbr ga='git add'
+abbr gc='git commit -m'
+abbr gp='git push'
+abbr gl='git log --oneline --graph --decorate'
+abbr gd='git diff'
+abbr y='yazi'
+abbr vim='nvim'
+abbr v='nvim'
+abbr fd='fdfind'
+abbr texbuild='latexmk -xelatex'
+abbr telegram='~/.local/lib/telegram/Telegram'   # updated path from install
+abbr upd='sudo apt update'
+abbr upg='sudo apt upgrade'
+abbr inst='sudo apt install'
+abbr ..='cd ..'
+abbr ...='cd ../..'
+abbr dotfiles='cd ~/dotfiles'
+
+# -----------------------------------------------------------------------------
+# Core aliases (non-abbreviations — these don't need to be visible before run)
 # -----------------------------------------------------------------------------
 alias ls='ls --color=auto'
-alias ll='ls -lah --color=auto'
-alias la='ls -A --color=auto'
 alias grep='grep --color=auto'
 alias df='df -h'
 alias du='du -h'
@@ -136,19 +160,11 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -pv'
-alias nvim='nvim'
-alias vi='nvim'
-alias v='nvim'
 
-# Git shortcuts
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph --decorate'
-alias gd='git diff'
-
-# Convenience
-alias ..='cd ..'
-alias ...='cd ../..'
-alias dotfiles='cd ~/dotfiles'
+# -----------------------------------------------------------------------------
+# SSH agent — start once, load key, stays unlocked for the session
+# -----------------------------------------------------------------------------
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" > /dev/null
+    ssh-add ~/.ssh/id_ed25519 2>/dev/null
+fi
