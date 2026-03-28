@@ -44,5 +44,9 @@ setxkbmap -layout us,gr -variant ,polytonic \
 
 # setxkbmap -option ctrl:swapcaps
 
+picom -b &
+
+/usr/lib/gvfs/gvfsd &
+
 # Start DWM
 exec dwm
