@@ -126,28 +126,25 @@ function y() {
 # -----------------------------------------------------------------------------
 # Abbreviations (zsh-abbr — expands in place like Fish)
 # -----------------------------------------------------------------------------
-source ~/.zsh/zsh-abbr/zsh-abbr.zsh
-
-abbr ll='ls -l'
-abbr la='ls -la'
-abbr gs='git status'
-abbr ga='git add'
-abbr gc='git commit -m'
-abbr gp='git push'
-abbr gl='git log --oneline --graph --decorate'
-abbr gd='git diff'
-abbr y='yazi'
-abbr vim='nvim'
-abbr v='nvim'
-abbr fd='fdfind'
-abbr texbuild='latexmk -xelatex'
-abbr telegram='~/.local/lib/telegram/Telegram'   # updated path from install
-abbr upd='sudo apt update'
-abbr upg='sudo apt upgrade'
-abbr inst='sudo apt install'
-abbr ..='cd ..'
-abbr ...='cd ../..'
-abbr dotfiles='cd ~/dotfiles'
+source ~/.zsh/zsh-abbrev-alias/abbrev-alias.plugin.zsh
+abbrev-alias ll='ls -l'
+abbrev-alias la='ls -la'
+abbrev-alias gs='git status'
+abbrev-alias ga='git add'
+abbrev-alias gc='git commit -m'
+abbrev-alias gp='git push'
+abbrev-alias gl='git log --oneline --graph --decorate'
+abbrev-alias gd='git diff'
+abbrev-alias y='yazi'
+abbrev-alias vim='nvim'
+abbrev-alias v='nvim'
+abbrev-alias fd='fdfind'
+abbrev-alias texbuild='latexmk -xelatex'
+abbrev-alias telegram='~/.local/lib/telegram/Telegram'
+abbrev-alias upd='sudo apt update'
+abbrev-alias upg='sudo apt upgrade'
+abbrev-alias inst='sudo apt install'
+abbrev-alias dotfiles='cd ~/dotfiles'
 
 # -----------------------------------------------------------------------------
 # Core aliases (non-abbreviations — these don't need to be visible before run)
