@@ -12,6 +12,7 @@ max_width = 6000
 max_height = 6000
 image_filter = "triangle"
 image_quality = 75
+image_protocol = "kitty"
 
 [opener]
 editor = [

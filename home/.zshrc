@@ -165,3 +165,15 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
     eval "$(ssh-agent -s)" > /dev/null
     ssh-add ~/.ssh/id_ed25519 2>/dev/null
 fi
+
+# -----------------------------------------------------------------------------
+# Yazi: y opens Yazi and drops you in whatever directory you navigated to when you quit.
+# -----------------------------------------------------------------------------
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}

@@ -78,7 +78,7 @@ static const char *volmute[] = { "pactl", "set-sink-mute",     "@DEFAULT_SINK@",
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *stcmd[]  = { "st", "-e", "tmux", "new-session", "-A", "-s", "main", NULL };
-static const char *termcmd[]  = { "kitty", "-e", "fish", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
 static const char *xppcmd[] = { "xournalpp", NULL };
 
