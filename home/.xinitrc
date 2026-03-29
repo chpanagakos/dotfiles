@@ -27,7 +27,7 @@ udiskie &
 /usr/bin/lxpolkit &
 
 # Sets the background (optional, if you have feh installed)
-feh --bg-center ~/Documents/pictures/grey_folds.jpg &
+feh --bg-center ~/Documents/pictures/tokyonight-wallpapers/dragon_original.png &
 
 # Enable tap-to-click for ELAN Touchpad
 xinput set-prop "ELAN0688:00 04F3:320B Touchpad" "libinput Tapping Enabled" 1 &
