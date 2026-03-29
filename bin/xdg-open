@@ -1,0 +1,30 @@
+#!/bin/sh
+case "$1" in
+    # Documents
+    *.pdf)                           zathura "$1" ;;
+    *.xopp)                          xournalpp "$1" ;;
+    *.doc|*.docx|*.odt)              libreoffice "$1" ;;
+    *.xls|*.xlsx|*.ods)              libreoffice "$1" ;;
+    *.ppt|*.pptx|*.odp)              libreoffice "$1" ;;
+    # Text / Code
+    *.txt|*.md|*.tex|*.py|*.lua|*.sh) kitty -e nvim "$1" ;;
+    # Images
+    *.png|*.jpg|*.jpeg|*.gif|*.webp|*.bmp|*.svg) feh "$1" ;;
+    # Video / Audio
+    *.mp4|*.mkv|*.avi|*.mov|*.webm)  mpv "$1" ;;
+    *.mp3|*.flac|*.ogg|*.wav|*.opus) mpv "$1" ;;
+    # Archives
+    *.zip|*.tar|*.gz|*.xz|*.bz2)    kitty -e bash -c "ls '$1'; read" ;;
+    *.7z)    kitty -e bash -c "7z l '$1'; read" ;;
+    *.rar)   kitty -e bash -c "7z l '$1'; read" ;;
+    # Web
+    http*|https*)                    firefox "$1" ;;
+    # Directories
+    *)
+        if [ -d "$1" ]; then
+            pcmanfm "$1"
+        else
+            echo "No handler for: $1"
+        fi
+        ;;
+esac

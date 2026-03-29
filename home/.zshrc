@@ -135,7 +135,7 @@ abbrev-alias gc='git commit -m'
 abbrev-alias gp='git push'
 abbrev-alias gl='git log --oneline --graph --decorate'
 abbrev-alias gd='git diff'
-abbrev-alias y='yazi'
+# abbrev-alias y='yazi'
 abbrev-alias vim='nvim'
 abbrev-alias v='nvim'
 abbrev-alias fd='fdfind'
@@ -175,5 +175,5 @@ function y() {
     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
         builtin cd -- "$cwd"
     fi
-    rm -f -- "$tmp"
+    rm -f -- "$tmp" 2>/dev/null
 }
