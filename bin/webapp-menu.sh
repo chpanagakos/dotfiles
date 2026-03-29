@@ -10,6 +10,7 @@ SITES="🤖 Gemini       | https://gemini.google.com
 📝 Word         | https://www.office.com/launch/word
 📊 Excel        | https://www.office.com/launch/excel
 📈 PowerPoint   | https://www.office.com/launch/powerpoint
+🏁 F1TV         | https://f1tv.formula1.com
 📺 YouTube      | https://www.youtube.com
 🎥 Criterion    | https://www.criterionchannel.com/browse
 📡 Cosmote      | https://www.cosmotetvott.gr/#!/home
