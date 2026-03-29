@@ -1,4 +1,6 @@
 #!/bin/sh
+# If no argument given, exit cleanly
+[ -z "$1" ] && exit 0
 case "$1" in
     # Documents
     *.pdf)                           zathura "$1" ;;
@@ -15,16 +17,16 @@ case "$1" in
     *.mp3|*.flac|*.ogg|*.wav|*.opus) mpv "$1" ;;
     # Archives
     *.zip|*.tar|*.gz|*.xz|*.bz2)    kitty -e bash -c "ls '$1'; read" ;;
-    *.7z)    kitty -e bash -c "7z l '$1'; read" ;;
-    *.rar)   kitty -e bash -c "7z l '$1'; read" ;;
+    *.7z)                            kitty -e bash -c "7z l '$1'; read" ;;
+    *.rar)                           kitty -e bash -c "7z l '$1'; read" ;;
     # Web
     http*|https*)                    firefox "$1" ;;
-    # Directories
+    # Directories and fallback
     *)
         if [ -d "$1" ]; then
-            pcmanfm "$1"
+            pcmanfm "$1" &
         else
-            echo "No handler for: $1"
+            /usr/bin/xdg-open "$1" &
         fi
         ;;
 esac

@@ -80,6 +80,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *stcmd[]  = { "st", "-e", "tmux", "new-session", "-A", "-s", "main", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
+static const char *chromcmd[]  = { "chromium", NULL };
+static const char *pcmancmd[]  = { "pcmanfm", NULL };
 static const char *xppcmd[] = { "xournalpp", NULL };
 
 /* Commands (external scripts) */
@@ -145,6 +147,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,    		XK_l,      spawn,          SHCMD("slock") },
 	/* Browser */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = webcmd } },
+	/* Chromium */
+	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = chromcmd } },
+	/* pcmanfm */
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = pcmancmd } },
 	/* xournalpp */
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = xppcmd } },
 	/* clipshot */

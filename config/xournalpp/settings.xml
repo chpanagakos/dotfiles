@@ -6,7 +6,7 @@
   <property name="pressureMultiplier" value="1"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Portrait"/>
-  <property name="lastSavePath" value=""/>
+  <property name="lastSavePath" value="/home/cpan/"/>
   <property name="lastOpenPath" value=""/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
@@ -14,8 +14,8 @@
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="2"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1406"/>
-  <property name="mainWndHeight" value="1418"/>
+  <property name="mainWndWidth" value="2558"/>
+  <property name="mainWndHeight" value="1413"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="true"/>
@@ -59,7 +59,7 @@
   <property name="cursorHighlightBorderWidth" value="0"/>
   <property name="useStockIcons" value="false"/>
   <property name="disableScrollbarFadeout" value="false"/>
-  <property name="disableAudio" value="false"/>
+  <property name="disableAudio" value="true"/>
   <!--Hides scroolbars in the main window, allowed values: "none", "horizontal", "vertical", "both"-->
   <property name="scrollbarHideType" value="none"/>
   <property name="autoloadMostRecent" value="false"/>
@@ -104,12 +104,6 @@
   <!--Config for new pages-->
   <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=lined&#10;backgroundColor=#ffffff&#10;"/>
   <property name="sizeUnit" value=""/>
-  <property name="audioFolder" value=""/>
-  <property name="audioInputDevice" value="-1"/>
-  <property name="audioOutputDevice" value="-1"/>
-  <property name="audioSampleRate" value="44100"/>
-  <property name="audioGain" value="1"/>
-  <property name="defaultSeekTime" value="5"/>
   <property name="pluginEnabled" value=""/>
   <property name="pluginDisabled" value=""/>
   <property name="strokeFilterIgnoreTime" value="150"/>
