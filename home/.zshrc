@@ -65,8 +65,8 @@ autoload -Uz add-zsh-hook
 
 # Git info via vcs_info
 zstyle ':vcs_info:git:*' enable git
-zstyle ':vcs_info:git:*' formats ' %F{#7aa2f7}(%b%u%c)%f'          # branch
-zstyle ':vcs_info:git:*' actionformats ' %F{#f7768e}(%b|%a%u%c)%f' # branch|action (rebase etc)
+zstyle ':vcs_info:git:*' formats ' %F{#7aa2f7}(%b%u%c%F{#7aa2f7})%f' #branch
+zstyle ':vcs_info:git:*' actionformats ' %F{#f7768e}(%b|%a%u%c%F{#f7768e})%f' # branch|action (rebase etc)
 zstyle ':vcs_info:git:*' unstagedstr '%F{#e0af68}*%f'               # dirty — unstaged
 zstyle ':vcs_info:git:*' stagedstr '%F{#9ece6a}+%f'                 # staged
 zstyle ':vcs_info:git:*' check-for-changes true
