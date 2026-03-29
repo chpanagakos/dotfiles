@@ -155,7 +155,7 @@ alias df='df -h'
 alias du='du -h'
 alias cp='cp -iv'
 alias mv='mv -iv'
-alias rm='rm -iv'
+# alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 
 # -----------------------------------------------------------------------------
@@ -175,5 +175,5 @@ function y() {
     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
         builtin cd -- "$cwd"
     fi
-    rm -f -- "$tmp" 2>/dev/null
+    rm "$tmp"
 }
