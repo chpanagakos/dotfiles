@@ -1,0 +1,12 @@
+cat > ~/.config/mimeapps.list << 'EOF'
+[Default Applications]
+application/pdf=zathura.desktop
+application/x-xopp=xournalpp.desktop
+image/png=feh.desktop
+image/jpeg=feh.desktop
+image/gif=feh.desktop
+text/plain=nvim.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+audio/mpeg=mpv.desktop
+EOF

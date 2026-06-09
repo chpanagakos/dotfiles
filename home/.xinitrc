@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Start the Polkit authentication agent in the background
+# lxpolkit &
+
 #
 # Run single-monitor mode
 "$HOME/bin/2mon.sh" &
@@ -27,7 +30,7 @@ udiskie &
 /usr/bin/lxpolkit &
 
 # Sets the background (optional, if you have feh installed)
-feh --bg-center ~/Documents/pictures/grey_folds.jpg &
+feh --bg-center ~/Documents/pictures/artemis 2/art002e000191~orig.jpg &
 
 # Enable tap-to-click for ELAN Touchpad
 xinput set-prop "ELAN0688:00 04F3:320B Touchpad" "libinput Tapping Enabled" 1 &
@@ -50,3 +53,6 @@ picom -b &
 
 # Start DWM
 exec dwm
+#
+# Wrap DWM in a D-Bus session
+# exec dbus-launch --exit-with-session dwm

@@ -30,6 +30,8 @@ xopp = [
 
 pdf = [
   { run = 'zathura "$@"', orphan = true, for = "unix" },
+  { run = 'evince "$@"', orphan = true, for = "unix" },
+  { run = 'mupdf "$@"', orphan = true, for = "unix" },
   { run = 'xdg-open "$@"', orphan = true, for = "unix" },
 ]
 

@@ -9,6 +9,7 @@ set recolor-keephue "true"      # Keep image colors normal
 # shortcut to annotate with xournalpp
 map o exec "xournalpp -p $PAGE '%'"
 
+
 # # --- Rosé Pine Theme ---
 #
 # # Base & Text

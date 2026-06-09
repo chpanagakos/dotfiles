@@ -159,6 +159,12 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
 # -----------------------------------------------------------------------------
+# Auxiliary aliases 
+# -----------------------------------------------------------------------------
+alias airpods='bluetoothctl connect F8:D3:F0:6B:F3:BD'
+alias airoff='bluetoothctl disconnect F8:D3:F0:6B:F3:BD'
+
+# -----------------------------------------------------------------------------
 # SSH agent — start once, load key, stays unlocked for the session
 # -----------------------------------------------------------------------------
 if [ -z "$SSH_AUTH_SOCK" ]; then
