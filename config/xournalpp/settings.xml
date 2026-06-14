@@ -6,7 +6,7 @@
   <property name="pressureMultiplier" value="1"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Portrait"/>
-  <property name="lastSavePath" value="/home/cpan/Documents/TAVI"/>
+  <property name="lastSavePath" value="/home/cpan/2025-26/bgymn/epanalipsi"/>
   <property name="lastOpenPath" value="/home/cpan/2025-26/Nikos_Koulentis/phys"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
@@ -194,6 +194,10 @@
       <attribute name="deviceClass" type="int" value="0"/>
       <attribute name="deviceSource" type="int" value="0"/>
     </data>
+    <data name="Logitech G305">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
     <data name="Logitech USB Receiver Mouse">
       <attribute name="deviceClass" type="int" value="1"/>
       <attribute name="deviceSource" type="int" value="0"/>
@@ -204,7 +208,7 @@
     </data>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="text"/>
+    <attribute name="current" type="string" value="pen"/>
     <data name="drawArrow"/>
     <data name="drawCoordinateSystem"/>
     <data name="drawDoubleArrow"/>
@@ -225,15 +229,15 @@
     </data>
     <data name="image"/>
     <data name="laserPointerHighlighter">
-      <attribute name="color" type="hex" value="ffff0000"/>
+      <attribute name="color" type="hex" value="ffffff00"/>
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="laserPointerPen">
       <attribute name="color" type="hex" value="ffff0000"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="BIG"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff3333cc"/>
+      <attribute name="color" type="hex" value="ff000000"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
@@ -254,7 +258,7 @@
     <data name="selectRegion"/>
     <data name="showFloatingToolbox"/>
     <data name="text">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="ffff0000"/>
     </data>
     <data name="verticalSpace"/>
   </data>

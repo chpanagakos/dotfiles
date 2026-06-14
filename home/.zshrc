@@ -163,6 +163,8 @@ alias mkdir='mkdir -pv'
 # -----------------------------------------------------------------------------
 alias airpods='bluetoothctl connect F8:D3:F0:6B:F3:BD'
 alias airoff='bluetoothctl disconnect F8:D3:F0:6B:F3:BD'
+alias airmic='pactl set-card-profile bluez_card.F8_D3_F0_6B_F3_BD headset-head-unit'
+alias airmusic='pactl set-card-profile bluez_card.F8_D3_F0_6B_F3_BD a2dp-sink-sbc_xq'
 
 # -----------------------------------------------------------------------------
 # SSH agent — start once, load key, stays unlocked for the session

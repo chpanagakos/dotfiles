@@ -130,21 +130,21 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	/* monitor controls */
-	{ MODKEY,              		XK_F1,     spawn, 	   {.v = mon1cmd } },
-	{ MODKEY,              		XK_F2,     spawn, 	   {.v = mon2cmd } },
-	{ MODKEY,              		XK_F3,     spawn, 	   {.v = mon3cmd } },
-	{ MODKEY,              		XK_F4,     spawn, 	   {.v = mon4cmd } },
+	{ MODKEY,                       XK_F1,     spawn,          {.v = mon1cmd } },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = mon2cmd } },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = mon3cmd } },
+	{ MODKEY,                       XK_F4,     spawn,          {.v = mon4cmd } },
 	/* toggle wacom to monitors */
-	{ MODKEY|ShiftMask,              XK_w,     spawn, 	   {.v = wacomcmd } },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wacomcmd } },
 	/* Volume keys */
-	{ 0, 				XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
-	{ 0, 				XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
-	{ 0, 				XF86XK_AudioMute,        spawn, {.v = volmute } },
+    { MODKEY,                       XK_Up,     spawn,          {.v = volup } },
+    { MODKEY,                       XK_Down,   spawn,          {.v = voldown } },
+    { MODKEY,                       XK_Right,  spawn,          {.v = volmute } },
 	/* Brightness Control */
-	{ 0,				XF86XK_MonBrightnessUp,  spawn, SHCMD("brightnessctl set +5%") },
-	{ 0,				XF86XK_MonBrightnessDown,spawn, SHCMD("brightnessctl set 5%-") },
+	{ 0,            XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl set +5%") },
+	{ 0,			XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl set 5%-") },
 
-	{ MODKEY|ShiftMask,    		XK_l,      spawn,          SHCMD("slock") },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
 	/* Browser */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = webcmd } },
 	/* Chromium */
