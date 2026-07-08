@@ -45,7 +45,7 @@ xss-lock -- slock &
 setxkbmap -layout us,gr -variant ,polytonic \
   -option grp:shifts_toggle,compose:ralt,grp_led:scroll
 
-# setxkbmap -option ctrl:swapcaps
+setxkbmap -option ctrl:swapcaps
 
 picom -b &
 

@@ -11,7 +11,7 @@ term xterm-kitty
 # ----------------------------
 dynamic_title yes
 hide_window_decorations yes
-background_opacity 1
+background_opacity 0.85
 
 window_padding_width 8
 placement_strategy top-left
@@ -37,7 +37,7 @@ font_size 12.0
 cursor_shape block
 cursor_blink_interval 0
 cursor_stop_blinking_after 0
-# cursor_text_color #1a1b26
+cursor_text_color #1a1b26
 
 # ----------------------------
 # Mouse / Selection
@@ -63,9 +63,29 @@ map ctrl+0         change_font_size all 0
 # ----------------------------
 # Colors
 # ----------------------------
+foreground #c0caf5
+background #1a1b26
 
+selection_foreground #1a1b26
+selection_background #c0caf5
 
-# BEGIN_KITTY_THEME
-# Tokyo Night Day
-include current-theme.conf
-# END_KITTY_THEME
+cursor #c0caf5
+cursor_text_color #1a1b26
+
+color0  #15161e
+color1  #f7768e
+color2  #9ece6a
+color3  #e0af68
+color4  #7aa2f7
+color5  #bb9af7
+color6  #7dcfff
+color7  #a9b1d6
+
+color8  #414868
+color9  #f7768e
+color10 #9ece6a
+color11 #e0af68
+color12 #7aa2f7
+color13 #bb9af7
+color14 #7dcfff
+color15 #c0caf5
