@@ -47,7 +47,7 @@ setxkbmap -layout us,gr -variant ,polytonic \
 
 setxkbmap -option ctrl:swapcaps
 
-picom -b &
+# picom -b &
 
 /usr/lib/gvfs/gvfsd &
 
