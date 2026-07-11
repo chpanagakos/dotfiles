@@ -143,6 +143,7 @@ abbrev-alias texbuild='latexmk -xelatex'
 abbrev-alias telegram='~/.local/lib/telegram/Telegram'
 abbrev-alias upd='sudo apt update'
 abbrev-alias upg='sudo apt upgrade'
+abbrev-alias upl='sudo apt list --upgradable'
 abbrev-alias inst='sudo apt install'
 abbrev-alias dotfiles='cd ~/dotfiles'
 
