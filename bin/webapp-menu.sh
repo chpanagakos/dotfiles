@@ -2,8 +2,8 @@
 
 # Define your Web Apps
 # format: [Icon] [Name] | [URL]
-SITES="🤖 Gemini       | https://gemini.google.com
-🧠 Claude       | https://claude.ai
+SITES="🧠 Claude       | https://claude.ai
+🤖 Gemini       | https://gemini.google.com
 💬 ChatGPT      | https://chat.openai.com
 🐙 GitHub       | https://github.com
 📧 Gmail        | https://mail.google.com
@@ -18,7 +18,7 @@ SITES="🤖 Gemini       | https://gemini.google.com
 🛍️ Skroutz      | https://www.skroutz.gr
 🌥️ Weather      | https://wttr.in/papadianika"
 # Pipe to dmenu
-SELECTED=$(echo "$SITES" | dmenu -i -p "Web App:" -l 10)
+SELECTED=$(echo "$SITES" | dmenu -i -p "Web App:" -l 15)
 
 # Exit if no selection
 [ -z "$SELECTED" ] && exit 0
