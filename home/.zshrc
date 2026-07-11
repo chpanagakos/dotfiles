@@ -37,20 +37,40 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#565f89'   # Tokyo Night comment colour
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # -----------------------------------------------------------------------------
-# Keybindings
+# Keybindings(emacs-style)
 # -----------------------------------------------------------------------------
-bindkey -e                                      # emacs-style line editing
-bindkey '^[[A' history-search-backward          # up arrow — history search
-bindkey '^[[B' history-search-forward           # down arrow
-bindkey '^[^[[C' forward-word                   # alt+right — skip word
-bindkey '^[^[[D' backward-word                  # alt+left
-bindkey '^[[1;5C' forward-word                  # ctrl+right (some terminals)
-bindkey '^[[1;5D' backward-word                 # ctrl+left
-bindkey '^[[H' beginning-of-line                # Home
-bindkey '^[[F' end-of-line                      # End
-# Accept autosuggestion with right arrow or End
-bindkey '^[[C' autosuggest-accept
-bindkey '^[[F' autosuggest-accept
+# bindkey -e                                      # emacs-style line editing
+# bindkey '^[[A' history-search-backward          # up arrow — history search
+# bindkey '^[[B' history-search-forward           # down arrow
+# bindkey '^[^[[C' forward-word                   # alt+right — skip word
+# bindkey '^[^[[D' backward-word                  # alt+left
+# bindkey '^[[1;5C' forward-word                  # ctrl+right (some terminals)
+# bindkey '^[[1;5D' backward-word                 # ctrl+left
+# bindkey '^[[H' beginning-of-line                # Home
+# bindkey '^[[F' end-of-line                      # End
+# # Accept autosuggestion with right arrow or End
+# bindkey '^[[C' autosuggest-accept
+# bindkey '^[[F' autosuggest-accept
+
+# -----------------------------------------------------------------------------
+# Keybindings(vim-style)
+# -----------------------------------------------------------------------------
+bindkey -v
+
+# Reduce the delay after pressing Escape
+KEYTIMEOUT=10
+
+# Insert mode
+bindkey -M viins '^L' autosuggest-accept
+
+# Normal mode
+bindkey -M vicmd 'h' vi-backward-char
+bindkey -M vicmd 'l' vi-forward-char
+bindkey -M vicmd 'w' vi-forward-word
+bindkey -M vicmd 'b' vi-backward-word
+bindkey -M vicmd '0' beginning-of-line
+bindkey -M vicmd '$' end-of-line
+bindkey -M vicmd 'L' autosuggest-accept
 
 # -----------------------------------------------------------------------------
 # Prompt
