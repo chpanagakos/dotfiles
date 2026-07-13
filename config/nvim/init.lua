@@ -409,6 +409,9 @@ require("lazy").setup({
 				styles = {
 					comments = { italic = false },
 				},
+				on_colors = function(colors)
+					colors.fg = "#eeeeee"
+				end,
 			})
 			vim.cmd.colorscheme("tokyonight-night")
 		end,
