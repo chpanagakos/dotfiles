@@ -18,7 +18,7 @@ SITES="🧠 Claude       | https://claude.ai
 🛍️ Skroutz      | https://www.skroutz.gr
 🌥️ Weather      | https://wttr.in/papadianika"
 # Pipe to dmenu
-SELECTED=$(echo "$SITES" | dmenu -i -p "Web App:" -l 15)
+SELECTED=$(echo "$SITES" | dmenu -i -p "Web App:" -l 7)
 
 # Exit if no selection
 [ -z "$SELECTED" ] && exit 0
