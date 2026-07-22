@@ -53,3 +53,4 @@ thumbs.db
 # ADVANCED USERS: If you strictly edit config.def.h and treat 
 # config.h as a build artifact, uncomment the line below:
 # wm/*/config.h
+config/xournalpp/settings.xml
