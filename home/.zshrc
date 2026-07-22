@@ -147,6 +147,7 @@ function y() {
 # Abbreviations (zsh-abbr — expands in place like Fish)
 # -----------------------------------------------------------------------------
 source ~/.zsh/zsh-abbrev-alias/abbrev-alias.plugin.zsh
+abbrev-alias n='nvim'
 abbrev-alias ll='ls -l'
 abbrev-alias la='ls -la'
 abbrev-alias gs='git status'
