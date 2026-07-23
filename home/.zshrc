@@ -168,6 +168,10 @@ abbrev-alias upl='sudo apt list --upgradable'
 abbrev-alias inst='sudo apt install'
 abbrev-alias dotfiles='cd ~/dotfiles'
 
+
+abbrev-alias pow='sudo poweroff'
+abbrev-alias reb='sudo reboot'
+
 # -----------------------------------------------------------------------------
 # Core aliases (non-abbreviations — these don't need to be visible before run)
 # -----------------------------------------------------------------------------
