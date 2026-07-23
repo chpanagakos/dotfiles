@@ -43,9 +43,7 @@ xss-lock -- slock &
 
 # Keyboard layout (optional)
 setxkbmap -layout us,gr -variant ,polytonic \
-  -option grp:shifts_toggle,compose:ralt,grp_led:scroll
-
-setxkbmap -option ctrl:swapcaps
+  -option grp:shifts_toggle,compose:ralt,grp_led:scroll,ctrl:swapcaps
 
 # picom -b &
 
