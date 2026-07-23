@@ -417,6 +417,13 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = false,
+		priority = 1000,
+	},
+
 	-- TODO comments
 	{
 		"folke/todo-comments.nvim",
@@ -483,4 +490,20 @@ require("lazy").setup({
 	},
 })
 
+-- Colorscheme persistence. The ColorScheme autocmd records every theme change
+-- to stdpath("state")/colorscheme; on startup we replay it, falling back to
+-- tokyonight-night if the file is missing or names a theme that's gone.
+
+local f = vim.fn.stdpath("state") .. "/colorscheme"
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function(ev)
+		vim.fn.writefile({ ev.match }, f)
+	end,
+})
+
+local ok, saved = pcall(vim.fn.readfile, f)
+if not (ok and pcall(vim.cmd.colorscheme, saved[1])) then
+	vim.cmd.colorscheme("tokyonight-night")
+end
 -- vim: ts=2 sts=2 sw=2 et
