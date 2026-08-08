@@ -424,6 +424,13 @@ require("lazy").setup({
 		priority = 1000,
 	},
 
+	{
+		"wtfox/luna.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+
 	-- TODO comments
 	{
 		"folke/todo-comments.nvim",
