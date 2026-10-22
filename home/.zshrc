@@ -108,9 +108,19 @@ setopt PROMPT_SUBST
 
 # Prompt layout:
 # [exitcode] ~/path/here (branch*) (venv) ❯
-PROMPT='%(?.%F{#9ece6a}.%F{#f7768e})❯%f '   # ❯ green if ok, red if error
+# PROMPT='%(?.%F{#9ece6a}.%F{#f7768e})❯%f '   # ❯ green if ok, red if error
+#
+# RPROMPT='%F{#7dcfff}%~%f${vcs_info_msg_0_}$(_venv_info)'
 
-RPROMPT='%F{#7dcfff}%~%f${vcs_info_msg_0_}$(_venv_info)'
+# Hostname only over SSH, e.g. "debian:" in purple
+if [[ -n $SSH_CONNECTION ]]; then
+    _host_prefix='%F{#bb9af7}%m%f:'
+else
+    _host_prefix=''
+fi
+
+PROMPT='${_host_prefix}%F{#7dcfff}%~%f${vcs_info_msg_0_}$(_venv_info) %(?.%F{#9ece6a}.%F{#f7768e})❯%f '
+RPROMPT=''
 # Right prompt: path in blue, git branch, venv
 
 # -----------------------------------------------------------------------------
