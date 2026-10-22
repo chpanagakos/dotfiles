@@ -54,3 +54,4 @@ thumbs.db
 # config.h as a build artifact, uncomment the line below:
 # wm/*/config.h
 config/xournalpp/settings.xml
+config/xournalpp/print-config.ini
