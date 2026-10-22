@@ -8,7 +8,7 @@ Set up October 2026. Keep this file in `~/dotfiles/docs/` so it travels with the
 
 ```
 Desktop (Debian 13)                    NAS "Arxeio" (UGREEN DXP2800)             Offline
-~/mathimata, ~/ai, ~/dotfiles  ──22:00──▶  NVMe  /volume1/staging  ──03:00──▶  SSD /volume2/nas-mirror
+~/mathimata, ~/ai, ~/dotfiles  ──22:00──▶  NVMe  /volume1/staging  ──03:00──▶  SSD /volume2/nas-mirror/Backup task1(1)/staging
                                           (snapshots 02:30, keep 14)           (snapshots 04:00, keep 14)
                                                      │
                                                      └──── weekly, by hand ────▶  WD Blue in Akasa dock
@@ -48,13 +48,13 @@ Both pools are **Basic** (single drive, no RAID). Redundancy comes from the nigh
 ### Shared folders
 
 - `staging` (`/volume1/staging`): the main copy. Contains the old home backups (Photos, Documents, Mathimata, EIRINI, Videos/family, Books, Films, Wallpapers, code…) and `desktop/` (the nightly desktop backup).
-- `nas-mirror` (`/volume2/nas-mirror`): copy of `staging`, made by Sync & Backup.
+- `nas-mirror` (`/volume2/nas-mirror`): the task's copy lives in **`Backup task1(1)/staging/`**. UGOS names the subfolder after the task (the `(1)` was added because an old folder already had the name). **Never rename it** — the task finds its copy by that name. A new task would create another subfolder, i.e. a second full copy. The task does **not** copy symlinks (57 at setup); restore those from `staging` or the Blue.
 
 ### Scheduled jobs on the NAS
 
 | Job | App | Time | Settings |
 |---|---|---|---|
-| `staging` → `nas-mirror` | Sync & Backup ("Backup between storage pools") | 03:00 daily | Mirror once snapshots exist (was Incremental at first — check which mode it is in) |
+| `staging` → `nas-mirror` | Sync & Backup ("Backup between storage pools") | 03:00 daily | Mirror backup, task name `Backup task1` |
 | Snapshot of `staging` | Snapshot | 02:30 daily | Keep 14 |
 | Snapshot of `nas-mirror` | Snapshot | 04:00 daily | Keep 14 |
 
@@ -151,7 +151,7 @@ Then remove the old machine's key from the NAS: `ssh cpan@192.168.1.40`, edit `~
 | Lost | Restore from | How |
 |---|---|---|
 | A file deleted/overwritten in the last 14 days | NAS snapshots | Snapshot app → pick `staging` (or `nas-mirror`) → pick the day → restore/browse. Snapshots live in `/volumeX/@snapshot/` |
-| The NVMe died | `nas-mirror` | Replace drive, new Basic pool + Btrfs volume, copy `nas-mirror` → new `staging` (Files → Copy to) |
+| The NVMe died | `nas-mirror` | Replace drive, new Basic pool + Btrfs volume, copy `nas-mirror/Backup task1(1)/staging` → new `staging` (Files → Copy to), then restore the symlinks from the Blue |
 | The whole NAS died | WD Blue | Plug into the desktop via the dock; it mounts as a normal ext4 drive (`sudo mount LABEL=blue-offline /mnt/blue`) |
 | Something removed from the NAS > 14 days ago | WD Blue `_deleted/` | Look under `/mnt/blue/_deleted/<date>/` |
 | Desktop disk died | NAS `staging/desktop/` | `rsync -rlt cpan@192.168.1.40:staging/desktop/ ~/` (or copy over SMB), then `uv sync` in projects, re-download models from `MODELS.txt` |
@@ -194,7 +194,8 @@ Desktop: `sudo smartctl -A /dev/sdX` (smartmontools).
 - **OS**: kept UGOS. TrueNAS/ZFS gains nothing with mismatched single drives; Debian would mean maintaining the NAS by hand. Revisit only if UGOS blocks something.
 - **No RAID**: 2 drives with different roles + snapshots + offline copy beats a mirror here.
 - **Optional purchase**: WD Red Plus 4 TB (**WD40EFPX**, CMR, ~€199 on Skroutz in Oct 2026; IronWolf ST4000VN006 equivalent). Only needed if data outgrows the Gigabyte's 480 GB. Avoid SMR, SAS (won't work in the DXP2800) and used server pulls.
-- **Dropped from backups**: Master's lecture videos, old temporary `home` backup, downloaded models, venvs. All of it was also on the Blue at the time it was reformatted — it is gone now except what is still on the Blue.
+- **Dropped from the NAS**: Master's lecture videos, **Music**, downloaded models, venvs. Lectures and Music still exist **only on the Blue**. Music is kept there on purpose (the refresh script never deletes it); at the next refresh the lectures move into `_deleted/<date>/` on the Blue (not destroyed), because they are no longer on the NAS — delete that folder when you're sure.
+- **Kept for now**: the old temporary `home` backup (~30 GB) in `staging`. Delete it when space is needed.
 - **Git remotes**: not needed on the NAS (project `.git` folders are already in the nightly backup). An off-site remote (GitLab/GitHub/Codeberg) is optional, for off-site code history.
 
 ---
@@ -205,7 +206,8 @@ Desktop: `sudo smartctl -A /dev/sdX` (smartmontools).
 - **Snapshots delay freeing space**: deleting a big folder only frees space after its last snapshot expires (14 days), unless you delete snapshots in the Snapshot app.
 - **Empty the UGOS recycle bin** after big deletes, or the space isn't freed. Deleting over SMB/SSH may also go through it.
 - **Removed drive = "Corrupted" pool** in UGOS. Expected. Never click "repair". Delete the pool entry only when the drive is gone for good (Delete storage pool).
-- **Files app can't delete shared folders** from its toolbar — use the shared folder management in UGOS.
+- **Files app can't delete shared folders** from its toolbar — use the shared folder management in UGOS. (Location found: _fill in_)
+- **Sync & Backup tasks can't switch mode** (Incremental ↔ Mirror) after creation — delete and recreate. Deleting a task leaves its subfolder in the destination; remove the orphan by hand. When deleting a task, answer **no** to deleting the backed-up data unless you mean it.
 - **Shut the NAS down from UGOS** (power icon → Shut down) before removing or adding drives.
 - **zsh** doesn't treat `#` as a comment at the prompt; `setopt interactivecomments` in `~/.zshrc` fixes it.
 - **UGOS drives on Debian**: UGOS wraps even Basic pools in mdadm (+ maybe LVM); a file manager can't open them. Reformat for plain use; to read one in place, start md arrays read-only first (`echo 1 | sudo tee /sys/module/md_mod/parameters/start_ro`).
@@ -227,4 +229,3 @@ Desktop: `sudo smartctl -A /dev/sdX` (smartmontools).
 - [ ] Wake-on-LAN for the desktop (the NAS could send the wake signal).
 - [ ] Restrict the backup key on the NAS to rsync only.
 - [ ] Off-site copy: restic to Hetzner Storage Box or Backblaze B2 (encrypted), and/or a private git remote.
-- [ ] Sync & Backup task: switch to **Mirror** if still Incremental, once snapshots are confirmed working.
