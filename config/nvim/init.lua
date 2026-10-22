@@ -35,6 +35,10 @@ vim.o.inccommand = "split"
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+if vim.env.SSH_CONNECTION then
+	vim.o.title = true
+	vim.o.titlestring = "[" .. vim.fn.hostname() .. "] %t"
+end
 
 -- ============================================================
 -- KEYMAPS
@@ -451,6 +455,16 @@ require("lazy").setup({
 			statusline.section_location = function()
 				return "%2l:%-2v"
 			end
+			-- Over SSH: show the hostname at the start of the statusline
+			if vim.env.SSH_CONNECTION then
+				local host = vim.fn.hostname()
+				local section_mode = statusline.section_mode
+				---@diagnostic disable-next-line: duplicate-set-field
+				statusline.section_mode = function(args)
+					local mode, hl = section_mode(args)
+					return host .. " │ " .. mode, hl
+				end
+			end
 		end,
 	},
 
@@ -497,11 +511,11 @@ require("lazy").setup({
 	},
 })
 
--- Colorscheme persistence. The ColorScheme autocmd records every theme change
--- to stdpath("state")/colorscheme; on startup we replay it, falling back to
--- tokyonight-night if the file is missing or names a theme that's gone.
-
-local f = vim.fn.stdpath("state") .. "/colorscheme"
+-- Colorscheme persistence. Local and SSH sessions remember their themes in
+-- separate files, so a theme picked over SSH never changes the local default.
+local remote = vim.env.SSH_CONNECTION ~= nil
+local f = vim.fn.stdpath("state") .. (remote and "/colorscheme-remote" or "/colorscheme")
+local default = remote and "rose-pine-moon" or "tokyonight-night"
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function(ev)
@@ -511,6 +525,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 local ok, saved = pcall(vim.fn.readfile, f)
 if not (ok and pcall(vim.cmd.colorscheme, saved[1])) then
-	vim.cmd.colorscheme("tokyonight-night")
+	vim.cmd.colorscheme(default)
 end
--- vim: ts=2 sts=2 sw=2 et
