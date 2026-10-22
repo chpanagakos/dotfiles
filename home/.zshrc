@@ -200,7 +200,14 @@ if [ -z "$SSH_AUTH_SOCK" ] && [ -z "$SSH_CONNECTION" ]; then
     eval "$(ssh-agent -s)" > /dev/null
     ssh-add ~/.ssh/id_ed25519 2>/dev/null
 fi
-
+# -----------------------------------------------------------------------------
+# Remote sessions — tint the background when logged in over SSH
+# -----------------------------------------------------------------------------
+if [[ -n $SSH_CONNECTION ]]; then
+    # printf '\e]11;#e9f1e4\a'                  # pale green while remote
+    printf '\e]11;#0f1f15\a'                  # very dark green while remote
+    zshexit() { printf '\e]111\a' }           # restore kitty's background on exit
+fi
 # -----------------------------------------------------------------------------
 # Yazi: y opens Yazi and drops you in whatever directory you navigated to when you quit.
 # -----------------------------------------------------------------------------
