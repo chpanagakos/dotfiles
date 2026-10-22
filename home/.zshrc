@@ -196,7 +196,7 @@ alias wpasupp='sudo nvim /etc/wpa_supplicant/wpa_supplicant.conf'
 # -----------------------------------------------------------------------------
 # SSH agent — start once, load key, stays unlocked for the session
 # -----------------------------------------------------------------------------
-if [ -z "$SSH_AUTH_SOCK" ]; then
+if [ -z "$SSH_AUTH_SOCK" ] && [ -z "$SSH_CONNECTION" ]; then
     eval "$(ssh-agent -s)" > /dev/null
     ssh-add ~/.ssh/id_ed25519 2>/dev/null
 fi
