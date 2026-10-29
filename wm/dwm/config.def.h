@@ -137,9 +137,10 @@ static const Key keys[] = {
 	/* toggle wacom to monitors */
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wacomcmd } },
 	/* Volume keys */
-    { MODKEY,                       XK_Up,     spawn,          {.v = volup } },
-    { MODKEY,                       XK_Down,   spawn,          {.v = voldown } },
-    { MODKEY,                       XK_Right,  spawn,          {.v = volmute } },
+    { MODKEY,                       XK_Up,     spawn,          {.v = volmute } },
+    { MODKEY,                       XK_Down,   spawn,          {.v = volmute } },
+    { MODKEY,                       XK_Right,  spawn,          {.v = voldown } },
+    { MODKEY,                       XK_Left,  spawn,          {.v = voldown } },
 	/* Brightness Control */
 	{ 0,            XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl set +5%") },
 	{ 0,			XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl set 5%-") },
