@@ -49,6 +49,9 @@ setxkbmap -layout us,gr -variant ,polytonic \
 
 /usr/lib/gvfs/gvfsd &
 
+#for xdg-portal to work properly in dwm
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
+
 # Start DWM
 exec dwm
 #
